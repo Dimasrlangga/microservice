@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "fe33f9ef-a3f2-4ad2-93e3-a5a03c3c3227",
+		"name": "payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35300415"
+	},
+	"item": [
+		{
+			"name": "create payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNumber\":\"ORD-001\",\r\n    \"amount\":\"200\",\r\n    \"status\":\"PENDING\",\r\n    \"paymentDate\":\"2025-02-25T14:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/payments/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"payments",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete payment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/payments/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"payments",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update payment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNumber\":\"ORD-002\",\r\n    \"amount\":\"200\",\r\n    \"status\":\"PENDING\",\r\n    \"paymentDate\":\"2025-02-25T14:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/payments/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"payments",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
