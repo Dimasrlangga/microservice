@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  labels:
+    app: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: dimaserlangga/order-service:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8083
+        env:
+        - name: SPRING_APPLICATION_NAME
+          value: "order-service"
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          value: "http://eurekaserver:8761/eureka/"
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mysql://mysql:3306/dbecommerce_orders?useSSL=false&serverTimezone=UTC"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "root"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "root_password"
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: mydockerhubsecret  # Jika image private, tambahkan ini
